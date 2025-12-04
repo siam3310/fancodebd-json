@@ -1,0 +1,28 @@
+
+name: Run Python Script
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+    - name: Install dependencies
+      run: pip install requests
+    - name: Run script
+      run: python main.py
+    - name: Commit and push if changed
+      run: |
+        git config --global user.name 'github-actions'
+        git config --global user.email 'github-actions@github.com'
+        git add fancodebd_by_siam.json
+        git commit -m "Update fancodebd_by_siam.json" || echo "No changes to commit"
+        git push || echo "No changes to push"
