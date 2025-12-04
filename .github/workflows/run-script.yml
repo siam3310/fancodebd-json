@@ -9,7 +9,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v3
       - name: Use Node.js
@@ -20,8 +21,9 @@ jobs:
       - run: node index.js
       - name: Commit and push if it changed
         run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "github-actions@github.com"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add fancodebd_by_siam.json
           git commit -m "Update Fancode JSON" || echo "No changes to commit"
           git push
+
