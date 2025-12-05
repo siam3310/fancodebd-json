@@ -8,6 +8,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:      # <-- এই অংশটি যোগ করা হয়েছে
+      contents: write # <-- অ্যাকশনকে কোড লেখার অনুমতি দেওয়া হয়েছে
 
     steps:
     - name: Checkout repository
@@ -16,7 +18,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.10' # Using a common and stable version
+        python-version: '3.10'
 
     - name: Install dependencies
       run: |
