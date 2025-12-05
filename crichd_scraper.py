@@ -33,15 +33,31 @@ def get_main_page_links():
         print("Failed to fetch main page content.")
         return []
 
-    links = re.findall(r'<a href="([^"]+)"[^>]*class="[^"]*event[^"]*"', content)
-    channel_links = re.findall(r'<div class="channels">\\s*<a href="([^"]+)"', content)
+    # New, more robust regex patterns
+    # Pattern for the main event table
+    event_links = re.findall(r'<td><a href="([^"]+)"[^>]+class="event.*?">Watch</a></td>', content)
+    print(f"Found {len(event_links)} links in the event table.")
+
+    # Pattern for the channels sidebar
+    channel_links = re.findall(r'<div class="channels">\s*<a href="([^"]+)"', content)
+    print(f"Found {len(channel_links)} links in the channels sidebar.")
+
+    # Pattern for the top navigation dropdowns
+    nav_links = re.findall(r'<ul class="dropdown-menu">.*?</ul>', content, re.DOTALL)
+    all_nav_links = []
+    for nav_block in nav_links:
+        all_nav_links.extend(re.findall(r'<li><a href="([^"]+)">', nav_block))
+    print(f"Found {len(all_nav_links)} links in the navigation menus.")
     
-    all_links = links + channel_links
+    # Combine all found links
+    all_links = event_links + channel_links + all_nav_links
     
+    # Filter out duplicates and invalid links
     unique_links = sorted(list(set(all_links)))
+    valid_links = [link for link in unique_links if link.startswith("https://v1.crichd.tv/")]
     
-    print(f"Found {len(unique_links)} unique links.")
-    return unique_links
+    print(f"Found {len(valid_links)} unique, valid links.")
+    return valid_links
 
 def get_stream_details(page_url):
     """Finds the stream details from a match/channel page."""
@@ -80,7 +96,7 @@ def get_final_m3u8_from_stream_page(stream_url):
         return None
 
     # The golden regex to find the obfuscated URL array
-    url_parts_match = re.search(r'return\\(\\[(\\"[^\\\]]+\\")\\]\\.join', content)
+    url_parts_match = re.search(r'return\\(\\[(\\\"[^\\\]]+\\")\\]\\.join', content)
     
     if url_parts_match:
         url_parts_str = url_parts_match.group(1)
@@ -108,7 +124,7 @@ def generate_m3u_playlist():
         print("Could not retrieve any links from the main page. Aborting.")
         return
 
-    m3u_content = "#EXTM3U\\n"
+    m3u_content = "#EXTM3U\n"
     
     for link in page_links:
         stream_url, title = get_stream_details(link)
@@ -118,8 +134,8 @@ def generate_m3u_playlist():
         final_link = get_final_m3u8_from_stream_page(stream_url)
             
         if final_link:
-            m3u_content += f'#EXTINF:-1 tvg-name="{title}",{title}\\n'
-            m3u_content += f'{final_link}\\n'
+            m3u_content += f'#EXTINF:-1 tvg-name="{title}",{title}\n'
+            m3u_content += f'{final_link}\n'
         
         print("-" * 20)
 
