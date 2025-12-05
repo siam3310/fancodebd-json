@@ -5,24 +5,33 @@ import json
 import urllib3
 
 # --- Configuration ---
-# Starting with one channel for a focused test
 CHANNELS = [
     "https://v1.crichd.tv/sky-sports-cricket-live-stream-me-1",
 ]
 
-# --- Core Functions ---
+# Define a standard browser User-Agent
+HEADERS = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+}
 
+# --- Core Functions ---
 def get_page_content(url, referer=None):
-    """Fetches content from a URL with optional referer header."""
+    """Fetches content from a URL with a browser-like User-Agent and optional referer."""
     try:
-        headers = {'Referer': referer} if referer else {}
+        # Add referer to the main headers if it exists
+        request_headers = HEADERS.copy()
+        if referer:
+            request_headers['Referer'] = referer
+
         # Disabling SSL verification as the JS version did
-        response = requests.get(url, headers=headers, timeout=20, verify=False)
+        response = requests.get(url, headers=request_headers, timeout=20, verify=False)
         response.raise_for_status()
         return response.text
     except requests.exceptions.RequestException as e:
         print(f"    [!] Error fetching {url}: {e}")
         return None
+
+# ... (The rest of the script remains the same) ...
 
 def extract_stream_details(channel_url):
     """Extracts the M3U8 link and title from a CricHD channel page."""
@@ -69,14 +78,11 @@ def extract_stream_details(channel_url):
         print("    [!] FATAL: Could not find the obfuscated m3u8 array.")
         return None, title
 
-    # The matched group is a JS array string like: "h","t","t","p",...
-    # We wrap it in [] to make it a valid JSON array string and parse it.
     url_parts_str = f'[{m3u8_parts_match.group(1)}]'
     
     try:
         url_chars = json.loads(url_parts_str)
         final_m3u8_url = "".join(url_chars)
-        # Clean up potential extra slashes (e.g., ://// -> ://)
         final_m3u8_url = re.sub(r':/+', '://', final_m3u8_url)
         print(f"    [+] SUCCESS: Extracted M3U8 link.")
         return final_m3u8_url, title
@@ -84,11 +90,8 @@ def extract_stream_details(channel_url):
         print(f"    [!] FATAL: Could not decode the m3u8 array parts. Error: {e}")
         return None, title
 
-# --- Main Execution ---
-
 def main():
     """Main function to scrape channels and create the M3U playlist."""
-    # Suppress only the single InsecureRequestWarning from urllib3 needed
     urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
     
     m3u_header = "#EXTM3U"
@@ -103,12 +106,10 @@ def main():
             playlist_entries.append(entry)
         print("-" * 40)
 
-    # Always start with the header
     final_playlist = m3u_header
     if not playlist_entries:
         print("No stream links were found. The playlist will be empty.")
     else:
-        # Join entries with two newlines for proper formatting
         final_playlist += "\n\n" + "\n\n".join(playlist_entries)
 
     try:
