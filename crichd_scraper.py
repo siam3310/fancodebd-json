@@ -1,150 +1,138 @@
 
-import urllib.request
 import re
-import http.client
+import urllib.request
 import ssl
 
-# Disable SSL certificate verification (useful for some sites, but use with caution)
+# --- Configuration ---
+# List of channel pages to scrape. Add or remove URLs as needed.
+CHANNELS = [
+    # Cricket
+    "https://v1.crichd.tv/sky-sports-cricket-live-stream-me-1",
+    "https://v1.crichd.tv/willow-cricket-live-stream-play-01",
+    "https://v1.crichd.tv/star-sports-1-live-stream-play-01",
+    "https://v1.crichd.tv/ptv-sports-live-stream-play-01",
+    "https://v1.crichd.tv/ten-sports-live-stream-play-01",
+    "https://v1.crichd.tv/a-sports-hd-live-streaming-play-01",
+    "https://v1.crichd.tv/fox-cricket-501-live-stream-play-01",
+    "https://v1.crichd.tv/supersport-cricket-live-stream-play-01",
+    
+    # UK Sports
+    "https://v1.crichd.tv/sky-sports-main-event-live-stream-play3",
+    "https://v1.crichd.tv/sky-sports-premier-league-live-stream-play3",
+    "https://v1.crichd.tv/sky-sports-football-live-stream-play3",
+    "https://v1.crichd.tv/sky-sports-f1-live-streaming-f17",
+    "https://v1.crichd.tv/tnt-sports-1-live-stream-uk-01",
+    "https://v1.crichd.tv/tnt-sports-2-live-stream-uk-01",
+    "https://v1.crichd.tv/tnt-sports-3-live-stream-uk-01",
+    "https://v1.crichd.tv/tnt-sports-4-live-stream-uk-01",
+
+    # US Sports
+    "https://v1.crichd.tv/espn-us-live-stream-play",
+    "https://v1.crichd.tv/espn-2-us-live-stream-play",
+]
+
+# --- SSL Configuration ---
+# Disables SSL certificate verification. Use with caution.
 try:
     _create_unverified_https_context = ssl._create_unverified_context
 except AttributeError:
-    # Python < 2.7.9 / 3.4.3 doesn't support this
     pass
 else:
     ssl._create_default_https_context = _create_unverified_https_context
 
+# --- Core Functions ---
+
 def get_page_content(url, headers={}):
-    """Fetches the content of a URL."""
+    """Fetches and returns the content of a given URL."""
     try:
         req = urllib.request.Request(url, headers=headers)
-        with urllib.request.urlopen(req, timeout=15) as response:
+        with urllib.request.urlopen(req, timeout=20) as response:
             return response.read().decode('utf-8', errors='ignore')
     except Exception as e:
-        print(f"Error fetching {url}: {e}")
-        return ""
-
-def get_main_page_links():
-    """Fetches all match and channel links from the crichd main page."""
-    main_url = "https://v1.crichd.tv/web"
-    print("Fetching main page...")
-    content = get_page_content(main_url)
-    
-    if not content:
-        print("Failed to fetch main page content.")
-        return []
-
-    # New, more robust regex patterns
-    # Pattern for the main event table
-    event_links = re.findall(r'<td><a href="([^"]+)"[^>]+class="event.*?">Watch</a></td>', content)
-    print(f"Found {len(event_links)} links in the event table.")
-
-    # Pattern for the channels sidebar
-    channel_links = re.findall(r'<div class="channels">\s*<a href="([^"]+)"', content)
-    print(f"Found {len(channel_links)} links in the channels sidebar.")
-
-    # Pattern for the top navigation dropdowns
-    nav_links = re.findall(r'<ul class="dropdown-menu">.*?</ul>', content, re.DOTALL)
-    all_nav_links = []
-    for nav_block in nav_links:
-        all_nav_links.extend(re.findall(r'<li><a href="([^"]+)">', nav_block))
-    print(f"Found {len(all_nav_links)} links in the navigation menus.")
-    
-    # Combine all found links
-    all_links = event_links + channel_links + all_nav_links
-    
-    # Filter out duplicates and invalid links
-    unique_links = sorted(list(set(all_links)))
-    valid_links = [link for link in unique_links if link.startswith("https://v1.crichd.tv/")]
-    
-    print(f"Found {len(valid_links)} unique, valid links.")
-    return valid_links
-
-def get_stream_details(page_url):
-    """Finds the stream details from a match/channel page."""
-    print(f"Fetching page: {page_url}")
-    content = get_page_content(page_url)
-    if not content:
-        return None, None
-
-    title_match = re.search(r'<h1[^>]*>([^<]+)</h1>', content)
-    title = title_match.group(1).strip() if title_match else page_url.split('/')[-1].replace('-', ' ').title()
-
-    # First, look for the 'embeds' array pattern
-    embeds_match = re.search(r'embeds\\[\\d+\\]\\s*=\\s*\\\'<iframe src="([^"]+)"', content)
-    if embeds_match:
-        iframe_src = embeds_match.group(1)
-        if 'streamcrichd.com' in iframe_src:
-            return "https:" + iframe_src, title
-            
-    # If not found, look for direct crichdplayer.com links
-    player_link_match = re.search(r'href="(https://crichdplayer.com/[^"]+)"', content)
-    if player_link_match:
-        return player_link_match.group(1), title
-        
-    print(f"No stream details found on {page_url}")
-    return None, None
-
-def get_final_m3u8_from_stream_page(stream_url):
-    """Gets the final m3u8 link from any of the intermediate stream pages."""
-    print(f"Fetching stream page: {stream_url}")
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
-        'Referer': 'https://v1.crichd.tv/' 
-    }
-    content = get_page_content(stream_url, headers=headers)
-    if not content:
+        print(f"    [!] Error fetching {url}: {e}")
         return None
 
-    # The golden regex to find the obfuscated URL array
-    url_parts_match = re.search(r'return\\(\\[(\\\"[^\\\]]+\\")\\]\\.join', content)
+def extract_stream_details(channel_url):
+    """Follows the chain of pages to extract the final m3u8 link and title."""
+    print(f"[1] Processing Channel: {channel_url}")
     
-    if url_parts_match:
-        url_parts_str = url_parts_match.group(1)
-        url_chars = [part.strip() for part in url_parts_str.replace('"', '').split(',')]
-        final_url = "".join(url_chars)
-        print(f"SUCCESS! Found m3u8 link: {final_url}")
-        return final_url
+    # Step 1: Get the initial iframe from the main channel page
+    main_content = get_page_content(channel_url)
+    if not main_content:
+        return None, None
         
-    # If the first pattern fails, lets try to find the 'fid' and follow the 'profamouslife' path
-    fid_match = re.search(r'fid="([^"]+)"', content)
-    if fid_match:
-        fid = fid_match.group(1)
-        premium_php_url = f"https://profamouslife.com/premium.php?player=desktop&live={fid}"
-        print(f"Found fid, constructed premium.php URL: {premium_php_url}")
-        return get_final_m3u8_from_stream_page(premium_php_url) # Recursive call
+    title_match = re.search(r'<h1.*?>(.*?)</h1>', main_content)
+    title = title_match.group(1).strip() if title_match else channel_url.split('/')[-1]
 
-    print(f"Could not find m3u8 link on {stream_url}")
-    return None
+    iframe_match = re.search(r'<iframe src="(//streamcrichd.com/[^"]+)"', main_content)
+    if not iframe_match:
+        print("    [!] Could not find streamcrichd.com iframe.")
+        return None, title
 
-def generate_m3u_playlist():
-    """The main function to generate the M3U playlist."""
+    streamcrichd_url = "https:" + iframe_match.group(1)
+    print(f"    [>] Found streamcrichd URL: {streamcrichd_url}")
     
-    page_links = get_main_page_links()
-    if not page_links:
-        print("Could not retrieve any links from the main page. Aborting.")
-        return
-
-    m3u_content = "#EXTM3U\n"
-    
-    for link in page_links:
-        stream_url, title = get_stream_details(link)
-        if not stream_url:
-            continue
-            
-        final_link = get_final_m3u8_from_stream_page(stream_url)
-            
-        if final_link:
-            m3u_content += f'#EXTINF:-1 tvg-name="{title}",{title}\n'
-            m3u_content += f'{final_link}\n'
+    # Step 2: Get the 'fid' from the streamcrichd page
+    streamcrichd_content = get_page_content(streamcrichd_url, headers={'Referer': 'https://v1.crichd.tv/'})
+    if not streamcrichd_content:
+        return None, title
         
-        print("-" * 20)
+    fid_match = re.search(r'fid="([^"]+)"', streamcrichd_content)
+    if not fid_match:
+        print("    [!] Could not find 'fid' on streamcrichd page.")
+        return None, title
+        
+    fid = fid_match.group(1)
+    print(f"    [>] Found fid: {fid}")
+
+    # Step 3: Get the final obfuscated script from the profamouslife page
+    profamouslife_url = f"https://profamouslife.com/premium.php?player=desktop&live={fid}"
+    profamouslife_content = get_page_content(profamouslife_url, headers={'Referer': 'https://streamcrichd.com/'})
+    if not profamouslife_content:
+        return None, title
+
+    # Step 4: The Golden Regex - Extract the character array for the m3u8 link
+    m3u8_parts_match = re.search(r'return\(\[([^\]]+)\]\.join', profamouslife_content)
+    if not m3u8_parts_match:
+        print("    [!] FATAL: Could not find the obfuscated m3u8 array.")
+        return None, title
+
+    url_parts_str = m3u8_parts_match.group(1)
+    # Clean up the string and join the characters to form the final URL
+    url_chars = [part.strip().replace('"', '').replace('\\/','/') for part in url_parts_str.split(',')]
+    final_m3u8_url = "".join(url_chars)
+    # A final cleanup to remove any extra slashes that sometimes appear
+    final_m3u8_url = re.sub(r':/+', '://', final_m3u8_url)
+
+    print(f"    [+] SUCCESS: Extracted M3U8 link: {final_m3u8_url}")
+    return final_m3u8_url, title
+
+def main():
+    """Main function to generate the M3U playlist."""
+    m3u_header = "#EXTM3U\n"
+    playlist_entries = []
+
+    print("--- Starting CricHD Channel Scraper ---")
+    for channel_url in CHANNELS:
+        m3u8_link, title = extract_stream_details(channel_url)
+        if m3u8_link and title:
+            entry = f'#EXTINF:-1 tvg-id="{title}" group-title="CricHD",{title}\n{m3u8_link}\n'
+            playlist_entries.append(entry)
+        print("-" * 30)
+
+    if not playlist_entries:
+        print("No stream links were found. The playlist will be empty.")
+        final_playlist = m3u_header
+    else:
+        final_playlist = m3u_header + "\n".join(playlist_entries)
 
     try:
         with open("crichd_playlist.m3u", "w", encoding='utf-8') as f:
-            f.write(m3u_content)
-        print("Playlist 'crichd_playlist.m3u' generated successfully!")
+            f.write(final_playlist)
+        print(f"--- Playlist Generation Complete! ---")
+        print(f"Successfully wrote {len(playlist_entries)} channels to crichd_playlist.m3u")
     except IOError as e:
-        print(f"Error writing to file: {e}")
+        print(f"[!] Error writing playlist to file: {e}")
 
 if __name__ == "__main__":
-    generate_m3u_playlist()
+    main()
