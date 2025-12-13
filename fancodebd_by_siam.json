@@ -1,7 +1,7 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/+rQTz5VL8CRpjNTZl",
-    "last update time": "11:55:57 PM 13-12-2025",
+    "last update time": "12:46:38 AM 14-12-2025",
     "matches": [
         {
             "event_category": "Football",
@@ -18,18 +18,18 @@
             "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/130989_english_hls_4028905a0a57778_1ta-di_h264/index.m3u8"
         },
         {
-            "event_category": "Cricket",
-            "title": "Dubai Capitals vs Abu Dhabi Knight Riders (DP World ILT20 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/138635_5786_ADKR_DC_FC-Web.jpg",
-            "team_1": "Dubai Capitals",
-            "team_2": "Abu Dhabi Knight Riders",
+            "event_category": "Golf",
+            "title": "Day 2 vs Tiburón Golf Club (Grant Thornton Invitational)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Grant-Thornton-Invitational_old-match-card.jpg",
+            "team_1": "Day 2",
+            "team_2": "Tiburón Golf Club",
             "status": "LIVE",
-            "event_name": "DP World ILT20 2025-26",
-            "match_name": "Dubai Capitals vs Abu Dhabi Knight Riders",
-            "match_id": 138635,
-            "startTime": "08:00:00 PM 13-12-2025",
-            "dai_url": "https://dai.google.com/linear/hls/event/-X7dpUEwR6-L9XTIVxVMPA/master.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/138635_english_hls_d8c1dedcbc37574_1ta-di_h264/index.m3u8"
+            "event_name": "Grant Thornton Invitational",
+            "match_name": "Day 2",
+            "match_id": 138729,
+            "startTime": "12:30:00 AM 14-12-2025",
+            "dai_url": "https://dai.google.com/linear/hls/event/TCxMln2lQRyR1PI-M6IKkQ/master.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/138729_english_hls_509a3b62cb30853_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Cricket",
@@ -42,6 +42,18 @@
             "match_name": "MI Emirates vs Sharjah Warriorz",
             "match_id": 138636,
             "startTime": "03:30:00 PM 14-12-2025"
+        },
+        {
+            "event_category": "Football",
+            "title": "Getafe CF vs RCD Espanyol (LALIGA 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/130984_5427_GEF_ESL_fc-web.jpg",
+            "team_1": "Getafe CF",
+            "team_2": "RCD Espanyol",
+            "status": "UPCOMING",
+            "event_name": "LALIGA 2025-26",
+            "match_name": "Getafe CF vs RCD Espanyol",
+            "match_id": 130984,
+            "startTime": "01:30:00 AM 14-12-2025"
         },
         {
             "event_category": "Cricket",
@@ -57,14 +69,14 @@
         },
         {
             "event_category": "Football",
-            "title": "Getafe CF vs RCD Espanyol (LALIGA 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/130984_5427_GEF_ESL_fc-web.jpg",
-            "team_1": "Getafe CF",
-            "team_2": "RCD Espanyol",
+            "title": "Real Zaragoza vs Cádiz (LALIGA Hypermotion 2025-26)",
+            "src": "https://images.fancode.com/aig/match/v1/138620_CASACARDS_APP.png",
+            "team_1": "Real Zaragoza",
+            "team_2": "Cádiz",
             "status": "UPCOMING",
-            "event_name": "LALIGA 2025-26",
-            "match_name": "Getafe CF vs RCD Espanyol",
-            "match_id": 130984,
+            "event_name": "LALIGA Hypermotion 2025-26",
+            "match_name": "Real Zaragoza vs Cádiz",
+            "match_id": 138620,
             "startTime": "01:30:00 AM 14-12-2025"
         },
         {
@@ -81,18 +93,6 @@
         },
         {
             "event_category": "Football",
-            "title": "Real Zaragoza vs Cádiz (LALIGA Hypermotion 2025-26)",
-            "src": "https://images.fancode.com/aig/match/v1/138620_CASACARDS_APP.png",
-            "team_1": "Real Zaragoza",
-            "team_2": "Cádiz",
-            "status": "UPCOMING",
-            "event_name": "LALIGA Hypermotion 2025-26",
-            "match_name": "Real Zaragoza vs Cádiz",
-            "match_id": 138620,
-            "startTime": "01:30:00 AM 14-12-2025"
-        },
-        {
-            "event_category": "Football",
             "title": "Wellington Phoenix vs Newcastle Jets (A League 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/138799_5802_WEL_NJ_fc-web.jpg",
             "team_1": "Wellington Phoenix",
@@ -102,18 +102,6 @@
             "match_name": "Wellington Phoenix vs Newcastle Jets",
             "match_id": 138799,
             "startTime": "07:30:00 AM 14-12-2025"
-        },
-        {
-            "event_category": "Golf",
-            "title": "Day 2 vs Tiburón Golf Club (Grant Thornton Invitational)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Grant-Thornton-Invitational_old-match-card.jpg",
-            "team_1": "Day 2",
-            "team_2": "Tiburón Golf Club",
-            "status": "UPCOMING",
-            "event_name": "Grant Thornton Invitational",
-            "match_name": "Day 2",
-            "match_id": 138729,
-            "startTime": "12:30:00 AM 14-12-2025"
         },
         {
             "event_category": "Football",
@@ -152,6 +140,18 @@
             "startTime": "01:30:00 AM 15-12-2025"
         },
         {
+            "event_category": "Football",
+            "title": "Ceuta vs Las Palmas (LALIGA Hypermotion 2025-26)",
+            "src": "https://images.fancode.com/aig/match/v1/138621_CASACARDS_APP.png",
+            "team_1": "Ceuta",
+            "team_2": "Las Palmas",
+            "status": "UPCOMING",
+            "event_name": "LALIGA Hypermotion 2025-26",
+            "match_name": "Ceuta vs Las Palmas",
+            "match_id": 138621,
+            "startTime": "01:30:00 AM 15-12-2025"
+        },
+        {
             "event_category": "Horse Racing",
             "title": "Longines Hong Kong Cup 2025 vs Sha Tin Racecourse (Longines Hong Kong Cup 2025)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/Longines-Hong-Kong-Cup-2025_Old_match-card.jpg",
@@ -174,18 +174,6 @@
             "match_name": "Day 4",
             "match_id": 138694,
             "startTime": "03:00:00 PM 14-12-2025"
-        },
-        {
-            "event_category": "Football",
-            "title": "Ceuta vs Las Palmas (LALIGA Hypermotion 2025-26)",
-            "src": "https://images.fancode.com/aig/match/v1/138621_CASACARDS_APP.png",
-            "team_1": "Ceuta",
-            "team_2": "Las Palmas",
-            "status": "UPCOMING",
-            "event_name": "LALIGA Hypermotion 2025-26",
-            "match_name": "Ceuta vs Las Palmas",
-            "match_id": 138621,
-            "startTime": "01:30:00 AM 15-12-2025"
         },
         {
             "event_category": "Golf",
