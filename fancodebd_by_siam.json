@@ -1,22 +1,8 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/+rQTz5VL8CRpjNTZl",
-    "last update time": "09:21:25 AM 22-12-2025",
+    "last update time": "10:12:14 AM 22-12-2025",
     "matches": [
-        {
-            "event_category": "Cricket",
-            "title": "New Zealand vs West Indies (West Indies tour of New Zealand, 2025)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/NZ-vs-WI_Test_old.jpg",
-            "team_1": "New Zealand",
-            "team_2": "West Indies",
-            "status": "LIVE",
-            "event_name": "West Indies tour of New Zealand, 2025",
-            "match_name": "New Zealand vs West Indies",
-            "match_id": 137698,
-            "startTime": "03:30:00 AM 18-12-2025",
-            "dai_url": "https://dai.google.com/linear/hls/event/HynNobMPSu6nQCgpxsK0lQ/master.m3u8",
-            "adfree_url": "https://sonypartnersdaimenew.akamaized.net/hls/live/2018457/DAI35ME-wivsnz/master.m3u8?hdnea=exp=1766396132~acl=/*~id=42662246996455798340162003387707~hmac=b5ec46f0689c3bddf099132de616c681d0edf0e5d1b111528d2c0df32c0f5303"
-        },
         {
             "event_category": "Cricket",
             "title": "Abu Dhabi Knight Riders vs Sharjah Warriorz (DP World ILT20 2025-26)",
@@ -32,7 +18,7 @@
         {
             "event_category": "Football",
             "title": "Mali vs Zambia (Africa Cup of Nations 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_Football-old-copy.jpg",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/138337_5774_ML_ZMB_fc-web.jpg",
             "team_1": "Mali",
             "team_2": "Zambia",
             "status": "UPCOMING",
@@ -68,7 +54,7 @@
         {
             "event_category": "Football",
             "title": "South Africa vs Angola (Africa Cup of Nations 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_Football-old-copy.jpg",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/138339_5774_SA_AGL_fc-web.jpg",
             "team_1": "South Africa",
             "team_2": "Angola",
             "status": "UPCOMING",
@@ -116,7 +102,7 @@
         {
             "event_category": "Football",
             "title": "Egypt vs Zimbabwe (Africa Cup of Nations 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_Football-old-copy.jpg",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/138338_5774_EGY_ZIM_fc-web.jpg",
             "team_1": "Egypt",
             "team_2": "Zimbabwe",
             "status": "UPCOMING",
@@ -152,7 +138,7 @@
         {
             "event_category": "Football",
             "title": "DR Congo vs Benin (Africa Cup of Nations 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_Football-old-copy.jpg",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/138343_5774_DCG_BNI_fc-web.jpg",
             "team_1": "DR Congo",
             "team_2": "Benin",
             "status": "UPCOMING",
@@ -164,7 +150,7 @@
         {
             "event_category": "Football",
             "title": "Senegal vs Botswana (Africa Cup of Nations 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_Football-old-copy.jpg",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/138342_5774_SEN_BOT_fc-web.jpg",
             "team_1": "Senegal",
             "team_2": "Botswana",
             "status": "UPCOMING",
@@ -200,7 +186,7 @@
         {
             "event_category": "Football",
             "title": "Nigeria vs Tanzania (Africa Cup of Nations 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_Football-old-copy.jpg",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/138340_5774_NGA_TNZ_fc-web.jpg",
             "team_1": "Nigeria",
             "team_2": "Tanzania",
             "status": "UPCOMING",
@@ -236,7 +222,7 @@
         {
             "event_category": "Football",
             "title": "Tunisia vs Uganda (Africa Cup of Nations 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_Football-old-copy.jpg",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/138341_5774_TUN_UGN_fc-web.jpg",
             "team_1": "Tunisia",
             "team_2": "Uganda",
             "status": "UPCOMING",
@@ -272,7 +258,7 @@
         {
             "event_category": "Football",
             "title": "Burkina Faso vs Equatorial Guinea (Africa Cup of Nations 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_Football-old-copy.jpg",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/138345_5774_BRK_EGU_fc-web.jpg",
             "team_1": "Burkina Faso",
             "team_2": "Equatorial Guinea",
             "status": "UPCOMING",
@@ -284,7 +270,7 @@
         {
             "event_category": "Football",
             "title": "Algeria vs Sudan (Africa Cup of Nations 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_Football-old-copy.jpg",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/138344_5774_ALG_SUD_fc-web.jpg",
             "team_1": "Algeria",
             "team_2": "Sudan",
             "status": "UPCOMING",
@@ -368,7 +354,7 @@
         {
             "event_category": "Football",
             "title": "Ivory Coast vs Mozambique (Africa Cup of Nations 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_Football-old-copy.jpg",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/138346_5774_IVC_MOZ_fc-web.jpg",
             "team_1": "Ivory Coast",
             "team_2": "Mozambique",
             "status": "UPCOMING",
@@ -380,7 +366,7 @@
         {
             "event_category": "Football",
             "title": "Cameroon vs Gabon (Africa Cup of Nations 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_Football-old-copy.jpg",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/138347_5774_CMR_GAB_fc-web.jpg",
             "team_1": "Cameroon",
             "team_2": "Gabon",
             "status": "UPCOMING",
