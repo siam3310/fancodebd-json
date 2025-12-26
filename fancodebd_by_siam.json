@@ -1,22 +1,8 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/+rQTz5VL8CRpjNTZl",
-    "last update time": "09:08:18 AM 26-12-2025",
+    "last update time": "09:59:09 AM 26-12-2025",
     "matches": [
-        {
-            "event_category": "Cricket",
-            "title": "Auckland Aces vs Northern Districts (Super Smash, 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/138731_5800_ND_AA_fc-web_1766641250922.jpg",
-            "team_1": "Auckland Aces",
-            "team_2": "Northern Districts",
-            "status": "LIVE",
-            "event_name": "Super Smash, 2025-26",
-            "match_name": "Auckland Aces vs Northern Districts",
-            "match_id": 138731,
-            "startTime": "06:40:00 AM 26-12-2025",
-            "dai_url": "https://dai.google.com/linear/hls/event/BucN4i1PRJuS1pXSSPQQuQ/master.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/138731_english_hls_beffea4d422387_1ta-di_h264/index.m3u8"
-        },
         {
             "event_category": "Cricket",
             "title": "Northern Brave Women vs Auckland Hearts (Women's Super Smash, 2025-26)",
@@ -198,18 +184,6 @@
             "startTime": "11:00:00 PM 26-12-2025"
         },
         {
-            "event_category": "Football",
-            "title": "Morocco vs Mali (Africa Cup of Nations 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/138348_5774_MOR_ML_fc-web_1766386874081.jpg",
-            "team_1": "Morocco",
-            "team_2": "Mali",
-            "status": "UPCOMING",
-            "event_name": "Africa Cup of Nations 2025-26",
-            "match_name": "Morocco vs Mali",
-            "match_id": 138348,
-            "startTime": "01:30:00 AM 27-12-2025"
-        },
-        {
             "event_category": "Cricket",
             "title": "Central Stags vs Wellington Firebirds (Super Smash, 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/138732_5800_CS_WF_fc-web_1766641251660.jpg",
@@ -220,6 +194,18 @@
             "match_name": "Central Stags vs Wellington Firebirds",
             "match_id": 138732,
             "startTime": "08:55:00 AM 27-12-2025"
+        },
+        {
+            "event_category": "Football",
+            "title": "Morocco vs Mali (Africa Cup of Nations 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/138348_5774_MOR_ML_fc-web_1766386874081.jpg",
+            "team_1": "Morocco",
+            "team_2": "Mali",
+            "status": "UPCOMING",
+            "event_name": "Africa Cup of Nations 2025-26",
+            "match_name": "Morocco vs Mali",
+            "match_id": 138348,
+            "startTime": "01:30:00 AM 27-12-2025"
         },
         {
             "event_category": "Football",
@@ -268,18 +254,6 @@
             "match_name": "IAS Invincibles vs Royal Oman Stallions",
             "match_id": 139150,
             "startTime": "12:30:00 PM 27-12-2025"
-        },
-        {
-            "event_category": "Football",
-            "title": "Sydney FC vs Auckland (A League 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/138808_5802_SYD_AFC_fc-web.jpg",
-            "team_1": "Sydney FC",
-            "team_2": "Auckland",
-            "status": "UPCOMING",
-            "event_name": "A League 2025-26",
-            "match_name": "Sydney FC vs Auckland",
-            "match_id": 138808,
-            "startTime": "11:30:00 AM 27-12-2025"
         },
         {
             "event_category": "Cricket",
@@ -448,6 +422,18 @@
             "match_name": "Melbourne City vs Perth Glory",
             "match_id": 138810,
             "startTime": "01:30:00 PM 28-12-2025"
+        },
+        {
+            "event_category": "Cricket",
+            "title": "Gulf Giants vs Abu Dhabi Knight Riders (DP World ILT20 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/138652_5786_GG_ADKR_FC-Web.jpg",
+            "team_1": "Gulf Giants",
+            "team_2": "Abu Dhabi Knight Riders",
+            "status": "UPCOMING",
+            "event_name": "DP World ILT20 2025-26",
+            "match_name": "Gulf Giants vs Abu Dhabi Knight Riders",
+            "match_id": 138652,
+            "startTime": "08:00:00 PM 28-12-2025"
         }
     ]
 }
