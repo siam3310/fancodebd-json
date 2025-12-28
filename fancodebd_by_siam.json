@@ -1,7 +1,7 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/+rQTz5VL8CRpjNTZl",
-    "last update time": "10:56:29 AM 28-12-2025",
+    "last update time": "12:07:39 PM 28-12-2025",
     "matches": [
         {
             "event_category": "Cricket",
@@ -43,6 +43,18 @@
         },
         {
             "event_category": "Cricket",
+            "title": "Wellington Firebirds vs Auckland Aces (Super Smash, 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/138734_5800_WF_AA_fc-web_1766641250910.jpg",
+            "team_1": "Wellington Firebirds",
+            "team_2": "Auckland Aces",
+            "status": "UPCOMING",
+            "event_name": "Super Smash, 2025-26",
+            "match_name": "Wellington Firebirds vs Auckland Aces",
+            "match_id": 138734,
+            "startTime": "08:55:00 AM 29-12-2025"
+        },
+        {
+            "event_category": "Cricket",
             "title": "Yalla Shabab Giants vs Muscat Thunders (Oman D20 League, 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/Oman-D20-League_FC-Web.jpg",
             "team_1": "Yalla Shabab Giants",
@@ -64,18 +76,6 @@
             "match_name": "Gabon vs Mozambique",
             "match_id": 138366,
             "startTime": "06:00:00 PM 28-12-2025"
-        },
-        {
-            "event_category": "Cricket",
-            "title": "Wellington Firebirds vs Auckland Aces (Super Smash, 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/138734_5800_WF_AA_fc-web_1766641250910.jpg",
-            "team_1": "Wellington Firebirds",
-            "team_2": "Auckland Aces",
-            "status": "UPCOMING",
-            "event_name": "Super Smash, 2025-26",
-            "match_name": "Wellington Firebirds vs Auckland Aces",
-            "match_id": 138734,
-            "startTime": "08:55:00 AM 29-12-2025"
         },
         {
             "event_category": "Football",
@@ -114,6 +114,18 @@
             "startTime": "01:30:00 AM 29-12-2025"
         },
         {
+            "event_category": "Cricket",
+            "title": "Rangpur Riders vs Chattogram Royals (Bangladesh Premier League, 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/138920_5808_RAN_CCH_fc-web_1766733054132.jpg",
+            "team_1": "Rangpur Riders",
+            "team_2": "Chattogram Royals",
+            "status": "UPCOMING",
+            "event_name": "Bangladesh Premier League, 2025-26",
+            "match_name": "Rangpur Riders vs Chattogram Royals",
+            "match_id": 138920,
+            "startTime": "12:30:00 PM 29-12-2025"
+        },
+        {
             "event_category": "Football",
             "title": "Melbourne City vs Perth Glory (A League 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/138810_5802_MLC_PG_fc-web.jpg",
@@ -127,15 +139,15 @@
         },
         {
             "event_category": "Cricket",
-            "title": "Rangpur Riders vs Chattogram Royals (Bangladesh Premier League, 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/138920_5808_RAN_CCH_fc-web_1766733054132.jpg",
-            "team_1": "Rangpur Riders",
-            "team_2": "Chattogram Royals",
+            "title": "Rajshahi Warriors vs Noakhali Express (Bangladesh Premier League, 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/138921_5808_DBR_NOE_fc-web_1766733054270.jpg",
+            "team_1": "Rajshahi Warriors",
+            "team_2": "Noakhali Express",
             "status": "UPCOMING",
             "event_name": "Bangladesh Premier League, 2025-26",
-            "match_name": "Rangpur Riders vs Chattogram Royals",
-            "match_id": 138920,
-            "startTime": "12:30:00 PM 29-12-2025"
+            "match_name": "Rajshahi Warriors vs Noakhali Express",
+            "match_id": 138921,
+            "startTime": "05:30:00 PM 29-12-2025"
         },
         {
             "event_category": "Golf",
@@ -148,18 +160,6 @@
             "match_name": "New York vs Atlanta",
             "match_id": 139163,
             "startTime": "01:30:00 AM 29-12-2025"
-        },
-        {
-            "event_category": "Cricket",
-            "title": "Rajshahi Warriors vs Noakhali Express (Bangladesh Premier League, 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/138921_5808_DBR_NOE_fc-web_1766733054270.jpg",
-            "team_1": "Rajshahi Warriors",
-            "team_2": "Noakhali Express",
-            "status": "UPCOMING",
-            "event_name": "Bangladesh Premier League, 2025-26",
-            "match_name": "Rajshahi Warriors vs Noakhali Express",
-            "match_id": 138921,
-            "startTime": "05:30:00 PM 29-12-2025"
         },
         {
             "event_category": "Football",
@@ -400,6 +400,18 @@
             "match_name": "Northern Brave Women vs Wellington Blaze",
             "match_id": 138768,
             "startTime": "05:10:00 AM 31-12-2025"
+        },
+        {
+            "event_category": "Cricket",
+            "title": "Northern Districts vs Wellington Firebirds (Super Smash, 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/138736_5800_ND_WF_fc-web_1766641250917.jpg",
+            "team_1": "Northern Districts",
+            "team_2": "Wellington Firebirds",
+            "status": "UPCOMING",
+            "event_name": "Super Smash, 2025-26",
+            "match_name": "Northern Districts vs Wellington Firebirds",
+            "match_id": 138736,
+            "startTime": "08:55:00 AM 31-12-2025"
         }
     ]
 }
